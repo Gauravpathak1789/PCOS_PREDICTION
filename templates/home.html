@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+  <title>Diabetes Prediction Website</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    form {
+      width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #008000;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .Prediction {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+  <h1>PCOS Prediction Website</h1>
+
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+      <input type="text" name="Age (yrs)" placeholder="Age" required="required" /><br>
+    	<input type="text" name="BMI" placeholder="BMI" required="required" /><br>
+        <input type="text" name="Cycle(R/I)" placeholder="Period cycle(Regular/Irregular)" required="required" /><br>
+        <input type="text" name="FSH(mIU/mL)" placeholder="Follicle-stimulating hormone(mIU/mL)" required="required" /><br>
+        <input type="text" name="AMH(ng/mL)" placeholder="Anti-Mullerian Hormone(ng/mL)" required="required" /><br>
+        <input type="text" name="LH(mIU/mL)" placeholder="Luteinizing Hormone(mIU/mL)" required="required" /><br>
+        <input type="text" name="Waist:Hip Ratio" placeholder="Waist:Hip Ratio" required="required" /><br>
+        <input type="text" name="Follicle No. (L)" placeholder="Follicle No.(in left side)" required="required" /><br>
+        <input type="text" name="Follicle No. (R)" placeholder="Follicle No.(in right side)" required="required" /><br>
+        <input type="text" name="FSH/LH" placeholder="Ratio of FSH and LH" required="required" /><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+  </form>
+
+  <div class="Prediction">
+    <h2>
+      Your prediction is:  {{result}}
+       </h2>
+  </div>
+ 
+</div>
+</body>
+</html>
